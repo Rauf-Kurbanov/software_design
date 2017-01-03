@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Command to call external system com.spbau.kurbanov.sd.shell.commands if they are not defined in this package
+ * Command to call external system commands if they are not defined in this package
  */
 @RequiredArgsConstructor
 @Parameters(commandDescription = "I don't know, some other command")

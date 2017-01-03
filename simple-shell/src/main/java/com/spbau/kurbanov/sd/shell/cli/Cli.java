@@ -24,9 +24,6 @@ public class Cli {
 
     /**
      * Creates command from tokenized string
-     * @param tokenized
-     * @return
-     * @throws IOException
      */
     public static Command fromTokenized(String[] tokenized) throws IOException {
         init();

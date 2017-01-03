@@ -2,6 +2,8 @@ group 'ru.spbau.mit.kurbanov'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'gradle-one-jar'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.8
 
@@ -9,11 +11,47 @@ repositories {
     mavenCentral()
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     // https://mvnrepository.com/artifact/com.beust/jcommander
     compile group: 'com.beust', name: 'jcommander', version: '1.7'
     compileOnly "org.projectlombok:lombok:1.16.10"
-// https://mvnrepository.com/artifact/org.apache.commons/commons-io
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-io
     compile group: 'org.apache.commons', name: 'commons-io', version: '1.3.2'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    compile 'org.jetbrains:annotations:15.0'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-all
+    compile group: 'org.mockito', name: 'mockito-all', version: '1.9.5'
+}
+
+task launcher(type: OneJar) {
+    mainClass = 'com.spbau.kurbanov.sd.shell.app.Driver'
+    archiveName = 'launcher.jar'
+}
+
+task launcherCopy(type: Copy) {
+    from launcher
+    into '.'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
 }

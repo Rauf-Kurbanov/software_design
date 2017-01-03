@@ -1,6 +1,10 @@
 package com.spbau.kurbanov.sd.shell.app;
 
 import com.beust.jcommander.ParameterException;
+import com.spbau.kurbanov.sd.shell.env.Environment;
+import com.spbau.kurbanov.sd.shell.piping.PipeRunner;
+import com.spbau.kurbanov.sd.shell.quote.Quote;
+import com.spbau.kurbanov.sd.shell.quote.QuoteParser;
 
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
@@ -16,7 +20,6 @@ public class Driver {
     /**
      * App entry point
      * @param args Command tokens split by spaces
-     * @throws IOException
      */
     public static void main(String[] args) throws IOException {
         final QuoteParser qp = new QuoteParser();

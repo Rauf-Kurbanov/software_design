@@ -5,7 +5,7 @@ import com.spbau.kurbanov.sd.shell.cli.Cli;
 import java.io.IOException;
 
 /**
- * Class for instantiating com.spbau.kurbanov.sd.shell.commands
+ * Class for instantiating commands
  */
 public interface CommandFactory {
 
