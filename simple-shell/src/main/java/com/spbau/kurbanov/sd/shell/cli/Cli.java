@@ -7,7 +7,7 @@ import com.spbau.kurbanov.sd.shell.commands.*;
 import java.io.IOException;
 
 /**
- * Adaptor for JCommander
+ * Adaptor for JCommander extended by a coupe of non-standard commands
  */
 public class Cli {
     private static final JCommander jCommander = new JCommander(new Cli());
@@ -30,11 +30,14 @@ public class Cli {
         try {
             jCommander.parse(tokenized);
         } catch (ParameterException e) {
+            if (tokenized.length == 1 && AssignCommand.isAssignExpression(tokenized[0])) {
+                return new AssignCommand(tokenized[0]);
+            }
             return new ExternalCommand(tokenized);
         }
 
-        String parsedCommand = jCommander.getParsedCommand();
-        JCommander parsedJCommander = jCommander.getCommands().get(parsedCommand);
+        final String parsedCommand = jCommander.getParsedCommand();
+        final JCommander parsedJCommander = jCommander.getCommands().get(parsedCommand);
         return (Command) parsedJCommander.getObjects().get(0);
     }
 

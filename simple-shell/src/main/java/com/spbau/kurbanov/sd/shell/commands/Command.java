@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Common interface for shell com.spbau.kurbanov.sd.shell.commands
+ * Common interface for shell commands
  */
 @FunctionalInterface
 public interface Command {
@@ -18,7 +18,6 @@ public interface Command {
      * @param in  shell input stream
      * @param out shell output stream
      * @param err shell error stream
-     * @throws IOException
      */
     void run(@NotNull InputStream in,
              @NotNull OutputStream out,

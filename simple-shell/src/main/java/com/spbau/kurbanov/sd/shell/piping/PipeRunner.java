@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Class aggregating and running consequent piped com.spbau.kurbanov.sd.shell.commands
+ * Class aggregating and running consequent piped commands
  */
 @NoArgsConstructor
 public class PipeRunner {
@@ -28,27 +28,25 @@ public class PipeRunner {
 
     /**
      * Add new command to be executed last
-     * @param c
-     * @throws IOException
+     * @param command new command to add
      */
-    public void add(Command c) throws IOException {
-        if (c instanceof CatCommand) {
-            CatCommand cc = (CatCommand) c;
+    public void add(Command command) throws IOException {
+        if (command instanceof CatCommand) {
+            final CatCommand cc = (CatCommand) command;
             if (cc.getFileNames().isEmpty()) {
                 return;
             }
         }
         if (pipes.isEmpty()) {
-            pipes.add(new Pipe(c));
+            pipes.add(new Pipe(command));
             return;
         }
-        pipes.add(new Pipe(pipes.getLast(), c));
+        pipes.add(new Pipe(pipes.getLast(), command));
     }
 
     /**
-     * Consequently run all com.spbau.kurbanov.sd.shell.commands passing output of the previous command
+     * Consequently runs all commands passing output of the previous command
      * to the next one as input
-     * @throws IOException
      */
     public void run() throws IOException {
         for (Pipe pc : pipes) {

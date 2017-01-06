@@ -24,7 +24,7 @@ public class ExternalCommand implements Command {
                     @NotNull OutputStream out,
                     @NotNull OutputStream err) throws IOException {
         if (tokenized.length == 0) { return; }
-        ProcessBuilder pb =
+        final ProcessBuilder pb =
                 new ProcessBuilder(tokenized);
         final Process start;
         try {
@@ -33,7 +33,7 @@ public class ExternalCommand implements Command {
             out.write(String.format("command not found: %s", tokenized[0]).getBytes());
             return;
         }
-        InputStream inputStream = start.getInputStream();
+        final InputStream inputStream = start.getInputStream();
         IOUtils.copy(inputStream, out);
     }
 }

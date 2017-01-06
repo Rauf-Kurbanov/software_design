@@ -4,7 +4,7 @@ import com.spbau.kurbanov.sd.shell.env.Environment;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Free-substitution com.spbau.kurbanov.sd.shell.quote
+ * Free-substitution quote
  *
  * @see Quote
  */

@@ -32,16 +32,18 @@ public class Environment {
         return new Environment() {
             private final Map<String, String> map = new HashMap<>();
 
+            @NotNull
             @Override
-            public String getVariableValue(String variable) {
+            public String getVariableValue(@NotNull String variable) {
                 return map.getOrDefault(variable, "");
             }
 
             @Override
-            public void putVariableValue(String variable, String value) {
+            public void putVariableValue(@NotNull String variable, @NotNull String value) {
                 map.put(variable, value);
             }
 
+            @NotNull
             @Override
             public Path getCurrentDirectory() {
                 return Paths.get(System.getProperty("user.dir"));

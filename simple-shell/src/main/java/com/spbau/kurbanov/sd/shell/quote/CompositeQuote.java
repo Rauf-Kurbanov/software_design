@@ -1,6 +1,7 @@
 package com.spbau.kurbanov.sd.shell.quote;
 
 import com.spbau.kurbanov.sd.shell.env.Environment;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class CompositeQuote implements Quote {
      * @return The result of the substitution
      */
     @Override
+    @NotNull
     public String substitute(Environment environment) {
         StringBuilder builder = new StringBuilder();
         for (Quote quote : myQuotes) {
@@ -31,9 +33,9 @@ public class CompositeQuote implements Quote {
     }
 
     /**
-     * Add to {@code com.spbau.kurbanov.sd.shell.quote} to end
+     * Add to {@code quote} to end
      *
-     * @param quote The com.spbau.kurbanov.sd.shell.quote for substitution
+     * @param quote The quote for substitution
      */
     public void append(Quote quote) {
         myQuotes.add(quote);

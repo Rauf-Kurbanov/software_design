@@ -5,7 +5,7 @@ import com.spbau.kurbanov.sd.shell.commands.Command;
 import java.io.*;
 
 /**
- * Adapter allowing to chain shell com.spbau.kurbanov.sd.shell.commands
+ * Adapter allowing to chain shell commands
  * Allows to pass output of the current command as input for next one
  */
 public class Pipe {
@@ -18,7 +18,6 @@ public class Pipe {
     /**
      * Create Pipe with singe command. Used as first Pipe in a sequence.
      * @param command only command in Pipe
-     * @throws IOException
      */
     public Pipe(Command command) throws IOException {
         this.command = command;
@@ -28,7 +27,6 @@ public class Pipe {
      * Create Pipe by chaining to previous
      * @param last Pipe to get input from
      * @param command command to execute
-     * @throws IOException
      */
     public Pipe(Pipe last, Command command) throws IOException {
         this.command = command;

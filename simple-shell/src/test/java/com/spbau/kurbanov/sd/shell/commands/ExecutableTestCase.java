@@ -18,9 +18,11 @@ public abstract class ExecutableTestCase {
         }
     };
 
+    @SuppressWarnings("WeakerAccess")
     protected List<Byte> myOutputData;
     protected OutputStream myOutputStream;
 
+    @SuppressWarnings("WeakerAccess")
     protected List<Byte> myErrorData;
     protected OutputStream myErrorStream;
 

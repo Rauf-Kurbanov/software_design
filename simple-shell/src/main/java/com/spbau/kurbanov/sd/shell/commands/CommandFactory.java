@@ -10,10 +10,9 @@ import java.io.IOException;
 public interface CommandFactory {
 
     /**
-     * Factory method for creating com.spbau.kurbanov.sd.shell.commands
+     * Factory method for creating commands
      * @param line command string split by spaces
      * @return matching command instance
-     * @throws IOException
      */
     static Command createFromArray(String[] line) throws IOException {
         if (line == null || line.length == 0) {

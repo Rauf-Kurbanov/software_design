@@ -4,7 +4,7 @@ import com.spbau.kurbanov.sd.shell.env.Environment;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The com.spbau.kurbanov.sd.shell.quote which replace all entries of variables for their values in
+ * The quote which replaces all entries of variables for their values in
  * current environment
  *
  * @see Quote
@@ -14,7 +14,7 @@ public class WeakQuote implements Quote {
     private static final char VARIABLE_PREFIX = '$';
     private final String myString;
 
-    /** Constructs a new weak com.spbau.kurbanov.sd.shell.quote
+    /** Constructs a new weak quote
      * @param string The string for substitution
      */
     public WeakQuote(@NotNull String string) {
