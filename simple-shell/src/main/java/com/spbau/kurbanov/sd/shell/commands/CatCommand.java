@@ -4,13 +4,9 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import com.spbau.kurbanov.sd.shell.env.Environment;
 import lombok.Getter;
-import org.apache.commons.io.IOUtils;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -26,16 +22,58 @@ public class CatCommand implements Command {
     @Parameter(description = "File patterns to add to the index")
     private final List<String> fileNames = new ArrayList<>();
 
+    private static final int BUFFER_SIZE = 4096;
+    private final byte[] buffer = new byte[BUFFER_SIZE];
+
+    private volatile int readCount = 0;
+
+    private  static void copy(@NotNull InputStream in, @NotNull OutputStream out)
+            throws IOException {
+        byte[] buffer = new byte[BUFFER_SIZE];
+        int readCount = in.read(buffer);
+        while (readCount > 0) {
+            out.write(buffer, 0, readCount);
+            readCount = in.read(buffer);
+        }
+    }
+
     @Override
     public void run(@NotNull InputStream in,
                     @NotNull OutputStream out,
                     @NotNull OutputStream err) throws IOException {
         if (fileNames.isEmpty()) {
-            IOUtils.copy(in, out);
+//            IOUtils.copy(in, out);
+//            copy(in, out);
+
+///////////////////////////////////////////////////////////////
+
+//            final Thread readThread = new Thread(() -> {
+//                try {
+//                    readCount = in.read(buffer);
+//                } catch (IOException ignored) {}
+//            });
+//
+//            final Thread writeThread = new Thread(() -> {
+//                while (readCount > 0) {
+//                    try {
+//                        out.write(buffer, 0, readCount);
+//                        readCount = in.read(buffer);
+//                    } catch (IOException ignored) {
+//                    }
+//                }
+//            });
+
+//            readThread.start();
+//            writeThread.start();
+
+/////////////////////////////////////////////////////////////////
+
+
+            copy(in, out);
             return;
         }
 
-        for (String filename : fileNames) {
+            for (String filename : fileNames) {
             final Path currentDirectory = Environment.INSTANCE.getCurrentDirectory();
             final File file = currentDirectory.resolve(filename).toFile();
             if (!file.exists()) {

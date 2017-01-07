@@ -23,7 +23,7 @@ public class AssignCommandTest extends ExecutableTestCase {
 
     @Test
     public void simpleVariableSetTest() throws IOException {
-        Cli.fromTokenized(new String[]{"x=abc"}).run(EMPTY_INPUT_STREAM, myOutputStream, myErrorStream);
+        Cli.fromTokenized(new String[]{"x=abc"}).run(EMPTY_INPUT_STREAM, is, errorStream);
         assertEquals("abc", Environment.INSTANCE.getVariableValue("x"));
     }
 
@@ -32,10 +32,10 @@ public class AssignCommandTest extends ExecutableTestCase {
         assertTrue(Environment.INSTANCE.getVariableValue("y").isEmpty());
         Environment.INSTANCE.putVariableValue("y", "hello");
         assertEquals("hello", Environment.INSTANCE.getVariableValue("y"));
-        Cli.fromTokenized(new String[]{"y=hi"}).run(EMPTY_INPUT_STREAM, myOutputStream, myErrorStream);
+        Cli.fromTokenized(new String[]{"y=hi"}).run(EMPTY_INPUT_STREAM, is, errorStream);
 
-        assertEquals(0, myOutputData.size());
-        assertEquals(0, myErrorData.size());
+        assertEquals(0, os.size());
+        assertEquals(0, errorData.size());
 
         assertEquals("hi", Environment.INSTANCE.getVariableValue("y"));
     }

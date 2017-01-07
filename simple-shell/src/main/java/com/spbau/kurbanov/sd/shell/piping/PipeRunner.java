@@ -1,56 +1,64 @@
 package com.spbau.kurbanov.sd.shell.piping;
 
-import com.spbau.kurbanov.sd.shell.commands.CatCommand;
+import com.spbau.kurbanov.sd.shell.cli.Cli;
 import com.spbau.kurbanov.sd.shell.commands.Command;
-import com.spbau.kurbanov.sd.shell.commands.CommandFactory;
-import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Class aggregating and running consequent piped commands
  */
-@NoArgsConstructor
-public class PipeRunner {
+public class PipeRunner implements Command {
+    private final Command leftCommand;
+    private final Command rightCommand;
 
-    private final LinkedList<Pipe> pipes = new LinkedList<>();
+    private PipeRunner(@NotNull Command left, @NotNull Command right) {
+        leftCommand = left;
+        rightCommand = right;
+    }
 
-    public PipeRunner(List<String[]> tokenized) throws IOException {
-        for (String[] tt : tokenized) {
-            Command command = CommandFactory.createFromArray(tt);
-            if (command != null) {
-                add(command);
-            }
+    public static Command parse(List<String[]> tokenized) throws IOException {
+        Command pipeHandler = Cli.fromTokenized(tokenized.get(0));
+        for (int i = 1; i < tokenized.size(); i++) {
+            pipeHandler = new PipeRunner(pipeHandler, Cli.fromTokenized(tokenized.get(i)));
         }
+        return pipeHandler;
     }
 
     /**
-     * Add new command to be executed last
-     * @param command new command to add
+     * Run all aggregated commands sequentially
      */
-    public void add(Command command) throws IOException {
-        if (command instanceof CatCommand) {
-            final CatCommand cc = (CatCommand) command;
-            if (cc.getFileNames().isEmpty()) {
-                return;
-            }
-        }
-        if (pipes.isEmpty()) {
-            pipes.add(new Pipe(command));
-            return;
-        }
-        pipes.add(new Pipe(pipes.getLast(), command));
+    public void run(@NotNull InputStream in, @NotNull OutputStream out, @NotNull OutputStream err) throws IOException {
+        Pipe pipe = new Pipe();
+
+        leftCommand.run(in, pipe.out, err);
+        pipe.out.close();
+
+        rightCommand.run(pipe.in, out, err);
     }
 
-    /**
-     * Consequently runs all commands passing output of the previous command
-     * to the next one as input
-     */
-    public void run() throws IOException {
-        for (Pipe pc : pipes) {
-            pc.run();
-        }
+    private static class Pipe {
+        private static final int INITIAL_BUFFER_SIZE = 4096;
+        private int myOffset = 0;
+        private final List<Integer> myBuffer = new ArrayList<>(INITIAL_BUFFER_SIZE);
+
+        private final InputStream in = new InputStream() {
+            @Override
+            public int read() throws IOException {
+                return myOffset < myBuffer.size() ? myBuffer.get(myOffset++) : -1;
+            }
+        };
+        private final OutputStream out = new OutputStream() {
+            @Override
+            public void write(int b) throws IOException {
+                myBuffer.add(b);
+            }
+        };
+
     }
 }

@@ -12,6 +12,8 @@ import java.io.OutputStream;
 @FunctionalInterface
 public interface Command {
 
+    char EOT = (char) 4;
+
     /**
      * Execute the command
      *

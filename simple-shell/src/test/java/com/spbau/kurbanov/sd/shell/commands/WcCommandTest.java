@@ -51,7 +51,7 @@ public class WcCommandTest extends ExecutableTestCase{
 
     private void testInternal(String input, int expectedLines, int expectedWords) throws IOException {
         final Command wcCommand = Cli.fromTokenized(new String[]{"wc"});
-        wcCommand.run(new ByteArrayInputStream(input.getBytes()), myOutputStream, myErrorStream);
+        wcCommand.run(new ByteArrayInputStream(input.getBytes()), is, errorStream);
 
         MyWcCommandResult wcResult = parseFromOutput(getOutputString());
         assertNotNull("Could not parse output as three integers", wcResult);

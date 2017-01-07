@@ -1,6 +1,7 @@
 package com.spbau.kurbanov.sd.shell.app;
 
 import com.beust.jcommander.ParameterException;
+import com.spbau.kurbanov.sd.shell.commands.Command;
 import com.spbau.kurbanov.sd.shell.env.Environment;
 import com.spbau.kurbanov.sd.shell.piping.PipeRunner;
 import com.spbau.kurbanov.sd.shell.quote.Quote;
@@ -37,9 +38,12 @@ public class Driver {
                             .map(q -> q.substitute(env))
                             .toArray(String[]::new));
                 }
-                final PipeRunner pipeRunner = new PipeRunner(unquoted);
+//                final PipeRunner pipeRunner = new PipeRunner(unquoted);
 
-                pipeRunner.run();
+//                pipeRunner.run();
+
+                final Command pipeHandler = PipeRunner.parse(unquoted);
+                pipeHandler.run(System.in, System.out, System.err);
             } catch (ParameterException | NoSuchFileException e) {
                 System.out.println(e.getMessage());
             }
