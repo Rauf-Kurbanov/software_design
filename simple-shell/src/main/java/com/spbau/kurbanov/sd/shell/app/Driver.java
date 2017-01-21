@@ -38,9 +38,6 @@ public class Driver {
                             .map(q -> q.substitute(env))
                             .toArray(String[]::new));
                 }
-//                final PipeRunner pipeRunner = new PipeRunner(unquoted);
-
-//                pipeRunner.run();
 
                 final Command pipeHandler = PipeRunner.parse(unquoted);
                 pipeHandler.run(System.in, System.out, System.err);

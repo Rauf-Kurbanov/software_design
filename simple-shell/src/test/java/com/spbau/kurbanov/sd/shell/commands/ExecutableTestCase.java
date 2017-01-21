@@ -19,8 +19,8 @@ public abstract class ExecutableTestCase {
     };
 
     @SuppressWarnings("WeakerAccess")
-    protected List<Byte> os;
-    protected OutputStream is;
+    protected List<Byte> outputData;
+    protected OutputStream outputStream;
 
     @SuppressWarnings("WeakerAccess")
     protected List<Byte> errorData;
@@ -28,11 +28,11 @@ public abstract class ExecutableTestCase {
 
     @Before
     public void initStreams() {
-        os = new ArrayList<>();
-        is = new OutputStream() {
+        outputData = new ArrayList<>();
+        outputStream = new OutputStream() {
             @Override
             public void write(int b) throws IOException {
-                os.add((byte) b);
+                outputData.add((byte) b);
             }
         };
 
@@ -46,7 +46,7 @@ public abstract class ExecutableTestCase {
     }
 
     protected String getOutputString() {
-        return new String(ArrayUtils.toPrimitive(os.toArray(new Byte[os.size()])));
+        return new String(ArrayUtils.toPrimitive(outputData.toArray(new Byte[outputData.size()])));
     }
 
     protected String getErrorString() {

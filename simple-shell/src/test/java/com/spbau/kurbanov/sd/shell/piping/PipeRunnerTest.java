@@ -16,7 +16,7 @@ public class PipeRunnerTest extends ExecutableTestCase {
 
         final Command pipeRunner = PipeRunner.parse(Arrays.asList(new String[]{"echo", "hello"},
                 new String[]{"cat"}));
-        pipeRunner.run(EMPTY_INPUT_STREAM, is, errorStream);
+        pipeRunner.run(EMPTY_INPUT_STREAM, outputStream, errorStream);
 
         assertEquals("hello", getOutputString().trim());
     }
@@ -26,7 +26,7 @@ public class PipeRunnerTest extends ExecutableTestCase {
 
         final Command pipeRunner = PipeRunner.parse(Arrays.asList(new String[]{"echo", "hello"},
                 new String[]{"cat"}, new String[]{"cat"}, new String[]{"cat"}));
-        pipeRunner.run(EMPTY_INPUT_STREAM, is, errorStream);
+        pipeRunner.run(EMPTY_INPUT_STREAM, outputStream, errorStream);
 
         assertEquals("hello", getOutputString().trim());
     }
@@ -36,7 +36,7 @@ public class PipeRunnerTest extends ExecutableTestCase {
 
         final Command pipeRunner = PipeRunner.parse(Arrays.asList(new String[]{"ps"},
                 new String[]{"cat"}));
-        pipeRunner.run(EMPTY_INPUT_STREAM, is, errorStream);
+        pipeRunner.run(EMPTY_INPUT_STREAM, outputStream, errorStream);
 
         assertEquals("PID", getOutputString().trim().substring(0, 3));
     }

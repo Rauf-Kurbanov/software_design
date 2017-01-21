@@ -15,7 +15,7 @@ public class EchoCommandTest extends ExecutableTestCase {
     public void oneArgumentTest() throws IOException {
         final String arg = "hello";
         final Command echoCommand = Cli.fromTokenized(new String[]{"echo", arg});
-        echoCommand.run(EMPTY_INPUT_STREAM, is, errorStream);
+        echoCommand.run(EMPTY_INPUT_STREAM, outputStream, errorStream);
 
         assertEquals(arg, getOutputString().trim());
         assertTrue(getErrorString().trim().isEmpty());
@@ -31,7 +31,7 @@ public class EchoCommandTest extends ExecutableTestCase {
         args.add(arg2);
 
         final Command echoCommand = Cli.fromTokenized(args.stream().toArray(String[]::new));
-        echoCommand.run(EMPTY_INPUT_STREAM, is, errorStream);
+        echoCommand.run(EMPTY_INPUT_STREAM, outputStream, errorStream);
 
         assertEquals(arg1 + ' ' + arg2, getOutputString().trim());
         assertTrue(getErrorString().trim().isEmpty());

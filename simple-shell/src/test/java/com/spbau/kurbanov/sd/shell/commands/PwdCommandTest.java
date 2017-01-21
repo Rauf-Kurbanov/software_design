@@ -11,7 +11,7 @@ public class PwdCommandTest extends ExecutableTestCase{
     @Test
     public void pwdTest() throws IOException {
         final String currentDirectory = Environment.INSTANCE.getCurrentDirectory().toAbsolutePath().toString();
-        new PwdCommand().run(EMPTY_INPUT_STREAM, is, errorStream);
+        new PwdCommand().run(EMPTY_INPUT_STREAM, outputStream, errorStream);
         assertEquals(currentDirectory, getOutputString().trim());
     }
 }

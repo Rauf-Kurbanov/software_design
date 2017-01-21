@@ -23,7 +23,7 @@ public class CatCommandTest extends ExecutableTestCase {
     @Test
     public void inputStreamTest() throws IOException {
         final InputStream is = new ByteArrayInputStream("hello".getBytes());
-        new CatCommand().run(is, this.is, errorStream);
+        new CatCommand().run(is, this.outputStream, errorStream);
         assertEquals("hello", getOutputString());
     }
 
@@ -34,7 +34,7 @@ public class CatCommandTest extends ExecutableTestCase {
         final File test = myTemporaryFolder.newFile(filename);
         Files.write(test.toPath(), contentOfFile.getBytes());
         final Command catCommand = Cli.fromTokenized(new String[]{"cat", test.toPath().toString()});
-        catCommand.run(EMPTY_INPUT_STREAM, is, errorStream);
+        catCommand.run(EMPTY_INPUT_STREAM, outputStream, errorStream);
 
         assertEquals(contentOfFile, getOutputString());
         assertTrue(getErrorString().isEmpty());

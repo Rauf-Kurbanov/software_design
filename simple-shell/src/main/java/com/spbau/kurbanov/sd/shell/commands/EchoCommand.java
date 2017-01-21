@@ -26,15 +26,5 @@ public class EchoCommand implements Command {
         final String output = strings.stream().collect(Collectors.joining(" "));
         out.write(output.getBytes());
         out.write(System.lineSeparator().getBytes());
-        final OutputStreamWriter osw = new OutputStreamWriter(out);
-
-//        final String EOT = "\u0004";
-//        final String EOT = Character.toString ((char) 4);
-
-//        osw.write(EOT);
-//        new DataOutputStream(out).writeChar((char) 4);
-//        out.write(-1);
-//        osw.write();
-//        out.write(new byte[]{-1});
-    }
+        }
 }
