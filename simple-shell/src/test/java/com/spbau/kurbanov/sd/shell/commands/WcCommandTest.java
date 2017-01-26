@@ -29,7 +29,7 @@ public class WcCommandTest extends ExecutableTestCase {
 
     @Test
     public void oneLineFewWordsTest() throws IOException {
-        String data = "hehttps://www.youtube.com/watch?v=yOxeZt217uw&index=10&list=vhttps://www.youtube.com/watch?v=yOxeZt217uw&index=10&list=vllo world";
+        String data = "hello world";
         testInternal(data, 1, 2);
     }
 
