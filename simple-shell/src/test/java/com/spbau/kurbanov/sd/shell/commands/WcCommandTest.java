@@ -9,7 +9,7 @@ import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class WcCommandTest extends ExecutableTestCase{
+public class WcCommandTest extends ExecutableTestCase {
     @Test
     public void emptyInputTest() throws IOException {
         testInternal("", 0, 0);
@@ -29,7 +29,7 @@ public class WcCommandTest extends ExecutableTestCase{
 
     @Test
     public void oneLineFewWordsTest() throws IOException {
-        String data = "hello world";
+        String data = "hehttps://www.youtube.com/watch?v=yOxeZt217uw&index=10&list=vhttps://www.youtube.com/watch?v=yOxeZt217uw&index=10&list=vllo world";
         testInternal(data, 1, 2);
     }
 
@@ -62,7 +62,7 @@ public class WcCommandTest extends ExecutableTestCase{
 
     private MyWcCommandResult parseFromOutput(String output) {
         final String[] splitResult = output.trim().split("\\s+");
-        if(splitResult.length != 3) {
+        if (splitResult.length != 3) {
             return null;
         }
 

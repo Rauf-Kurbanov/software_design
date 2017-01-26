@@ -26,5 +26,5 @@ public class EchoCommand implements Command {
         final String output = strings.stream().collect(Collectors.joining(" "));
         out.write(output.getBytes());
         out.write(System.lineSeparator().getBytes());
-        }
+    }
 }

@@ -20,6 +20,7 @@ public class Cli {
         jCommander.addCommand("exit", new ExitCommand());
         jCommander.addCommand("pwd", new PwdCommand());
         jCommander.addCommand("wc", new WcCommand());
+        jCommander.addCommand("grep", new GrepCommand());
     }
 
     /**

@@ -15,6 +15,7 @@ public class AssignCommand implements Command {
     private static final char ASSIGN_CHARACTER = '=';
 
     private final String input;
+
     /**
      * Construct a new assignment command
      *
@@ -48,7 +49,6 @@ public class AssignCommand implements Command {
         return eqIndex != -1 && eqIndex != expression.length() - 1
                 && isIdentifier(expression.substring(0, eqIndex));
     }
-
 
     @Override
     public void run(@NotNull InputStream in, @NotNull OutputStream out, @NotNull OutputStream err) throws IOException {
