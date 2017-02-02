@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.spbau.mit.kurbanov</OriginalElement>
+  <nodes>
+    <node x="360.603835978836" y="137.0">ru.spbau.mit.kurbanov.protocol.ChatProtocolTest</node>
+    <node x="55.75" y="230.0">ru.spbau.mit.kurbanov.view.MessageView</node>
+    <node x="680.6157407407408" y="622.0">ru.spbau.mit.kurbanov.app.MessengerApp</node>
+    <node x="212.94907407407413" y="331.0">ru.spbau.mit.kurbanov.contollers.CreateChatController</node>
+    <node x="582.0833333333334" y="230.0">ru.spbau.mit.kurbanov.model.Messenger</node>
+    <node x="596.5324074074074" y="343.0">ru.spbau.mit.kurbanov.model.MessengerTest</node>
+    <node x="675.6038359788361" y="125.0">ru.spbau.mit.kurbanov.server.Server</node>
+    <node x="568.5082671957673" y="541.0">ru.spbau.mit.kurbanov.contollers.StartController</node>
+    <node x="515.541335978836" y="0.0">ru.spbau.mit.kurbanov.protocol.ChatMessage</node>
+    <node x="0.0" y="331.0">ru.spbau.mit.kurbanov.view.ChatView</node>
+    <node x="532.6038359788361" y="137.0">ru.spbau.mit.kurbanov.protocol.ChatProtocol</node>
+    <node x="765.3538359788361" y="230.0">ru.spbau.mit.kurbanov.server.ServerTest</node>
+    <node x="28.928240740740762" y="125.0">ru.spbau.mit.kurbanov.model.Chat</node>
+    <node x="247.28240740740745" y="436.0">ru.spbau.mit.kurbanov.contollers.MessengerController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.spbau.mit.kurbanov.server.ServerTest" target="ru.spbau.mit.kurbanov.protocol.ChatMessage">
+      <point x="26.25" y="-15.5" />
+      <point x="844.1038359788361" y="105.0" />
+      <point x="759.3746693121693" y="105.0" />
+      <point x="110.83333333333337" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.protocol.ChatProtocolTest" target="ru.spbau.mit.kurbanov.protocol.ChatMessage">
+      <point x="0.0" y="-15.5" />
+      <point x="436.603835978836" y="95.0" />
+      <point x="626.3746693121693" y="95.0" />
+      <point x="-22.166666666666657" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.contollers.MessengerController" target="ru.spbau.mit.kurbanov.view.ChatView">
+      <point x="-107.33333333333331" y="-27.5" />
+      <point x="300.94907407407413" y="411.0" />
+      <point x="82.0" y="411.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.contollers.StartController" target="ru.spbau.mit.kurbanov.contollers.MessengerController">
+      <point x="-45.33333333333334" y="-15.5" />
+      <point x="591.1749338624339" y="521.0" />
+      <point x="408.28240740740745" y="521.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.model.Messenger" target="ru.spbau.mit.kurbanov.server.Server">
+      <point x="40.125" y="-15.5" />
+      <point x="675.7083333333334" y="210.0" />
+      <point x="740.1038359788361" y="210.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.view.ChatView" target="ru.spbau.mit.kurbanov.view.MessageView">
+      <point x="41.0" y="-27.5" />
+      <point x="123.0" y="311.0" />
+      <point x="118.75" y="311.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.protocol.ChatProtocol" target="ru.spbau.mit.kurbanov.protocol.ChatMessage">
+      <point x="0.0" y="-15.5" />
+      <point x="594.1038359788361" y="105.0" />
+      <point x="670.7080026455027" y="105.0" />
+      <point x="22.166666666666686" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.server.ServerTest" target="ru.spbau.mit.kurbanov.server.Server">
+      <point x="-26.25" y="-15.5" />
+      <point x="791.6038359788361" y="210.0" />
+      <point x="783.1038359788361" y="210.0" />
+      <point x="43.0" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.view.ChatView" target="ru.spbau.mit.kurbanov.model.Chat">
+      <point x="-41.0" y="-27.5" />
+      <point x="41.0" y="311.0" />
+      <point x="45.25" y="311.0" />
+      <point x="45.25" y="210.0" />
+      <point x="79.26157407407408" y="210.0" />
+      <point x="-100.66666666666669" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.model.Chat" target="ru.spbau.mit.kurbanov.protocol.ChatMessage">
+      <point x="75.5" y="-27.5" />
+      <point x="255.42824074074076" y="85.0" />
+      <point x="582.041335978836" y="85.0" />
+      <point x="-66.5" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.contollers.CreateChatController" target="ru.spbau.mit.kurbanov.model.Messenger">
+      <point x="0.0" y="-27.5" />
+      <point x="375.44907407407413" y="291.0" />
+      <point x="589.7261904761906" y="291.0" />
+      <point x="-45.85714285714286" y="15.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.server.Server" target="ru.spbau.mit.kurbanov.protocol.ChatMessage">
+      <point x="0.0" y="-27.5" />
+      <point x="740.1038359788361" y="105.0" />
+      <point x="715.0413359788361" y="105.0" />
+      <point x="66.50000000000003" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.contollers.MessengerController" target="ru.spbau.mit.kurbanov.contollers.CreateChatController">
+      <point x="0.0" y="-27.5" />
+      <point x="408.28240740740745" y="411.0" />
+      <point x="375.44907407407413" y="411.0" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.app.MessengerApp" target="ru.spbau.mit.kurbanov.contollers.StartController">
+      <point x="-45.0" y="-15.5" />
+      <point x="703.1157407407408" y="597.0" />
+      <point x="636.5082671957673" y="597.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.app.MessengerApp" target="ru.spbau.mit.kurbanov.model.Messenger">
+      <point x="0.0" y="-15.5" />
+      <point x="748.1157407407408" y="597.0" />
+      <point x="765.1157407407408" y="597.0" />
+      <point x="765.1157407407408" y="291.0" />
+      <point x="666.1547619047619" y="291.0" />
+      <point x="30.571428571428555" y="15.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.contollers.StartController" target="ru.spbau.mit.kurbanov.model.Messenger">
+      <point x="0.0" y="-15.5" />
+      <point x="636.5082671957673" y="511.0" />
+      <point x="586.0324074074074" y="511.0" />
+      <point x="586.0324074074074" y="311.0" />
+      <point x="620.2976190476192" y="311.0" />
+      <point x="-15.285714285714278" y="15.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.model.MessengerTest" target="ru.spbau.mit.kurbanov.model.Messenger">
+      <point x="0.0" y="-15.5" />
+      <point x="664.5324074074074" y="311.0" />
+      <point x="635.5833333333334" y="311.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.contollers.MessengerController" target="ru.spbau.mit.kurbanov.model.Messenger">
+      <point x="107.33333333333331" y="-27.5" />
+      <point x="515.6157407407408" y="411.0" />
+      <point x="548.4490740740741" y="411.0" />
+      <point x="548.4490740740741" y="301.0" />
+      <point x="605.0119047619048" y="301.0" />
+      <point x="-30.571428571428584" y="15.5" />
+    </edge>
+    <edge source="ru.spbau.mit.kurbanov.model.Messenger" target="ru.spbau.mit.kurbanov.model.Chat">
+      <point x="-13.375" y="-15.5" />
+      <point x="622.2083333333334" y="200.0" />
+      <point x="280.59490740740745" y="200.0" />
+      <point x="100.66666666666669" y="27.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="436.5" y="326.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

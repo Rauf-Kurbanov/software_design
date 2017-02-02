@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane fx:id="chatLayout" prefHeight="348.0" prefWidth="395.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <tabs>
+    <Tab text="start tab">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="318.0" prefWidth="407.0">
+          <children>
+            <Button fx:id="editButton" layoutX="129.0" layoutY="28.0" mnemonicParsing="false" text="Edit Name" />
+            <Button fx:id="createButton" layoutX="234.0" layoutY="28.0" mnemonicParsing="false" text="Create Chat" />
+            <Text id="name" fx:id="userName" layoutX="28.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ME">
+              <font>
+                <Font size="20.0" />
+              </font>
+            </Text>
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

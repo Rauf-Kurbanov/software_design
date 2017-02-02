@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="403.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Label fx:id="portLabel" layoutX="37.0" layoutY="62.0" text="Localport" />
+    <Label fx:id="unameLabel" layoutX="37.0" layoutY="136.0" text="Username" />
+    <TextField fx:id="portTextF" layoutX="133.0" layoutY="56.0" prefWidth="200.0" text="5432" />
+    <TextField fx:id="unameTextF" layoutX="133.0" layoutY="133.0" prefWidth="200.0" text="me" />
+    <Button fx:id="startButton" layoutX="37.0" layoutY="186.0" mnemonicParsing="false" prefWidth="74.0" text="Start" />
+    <Text fx:id="message" layoutX="53.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+  </children>
+</AnchorPane>
