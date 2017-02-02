@@ -5,6 +5,7 @@ This is a simple p2p chat app
 * sending/recieving messages
 * selecting server address
 * account setting (name changing)
+
 #### How to build
 ./gradlew build
 

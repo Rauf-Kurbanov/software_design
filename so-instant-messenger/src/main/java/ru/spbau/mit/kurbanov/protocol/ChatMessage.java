@@ -16,9 +16,4 @@ public class ChatMessage {
     private final String message;
     private final int serverPort;
     private final Date date = new Date();
-
-    @Override
-    public boolean equals(Object other) {
-        return this.toString().equals(other.toString());
-    }
 }
